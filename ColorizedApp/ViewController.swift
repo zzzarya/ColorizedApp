@@ -26,19 +26,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func redSliderAction() {
-        redValue.text = String(round(redSlider.value * 100) / 100)
+        redValue.text = String(format: "%.2f", redSlider.value)
         
         setupColorMainView()
     }
     
     @IBAction func greenSliderAction() {
-        greenValue.text = String(round(greenSlider.value * 100) / 100)
+        greenValue.text = String(format: "%.2f", greenSlider.value)
 
         setupColorMainView()
     }
     
     @IBAction func blueSliderAction() {
-        blueValue.text = String(round(blueSlider.value * 100) / 100)
+        blueValue.text = String(format: "%.2f", blueSlider.value)
        
         setupColorMainView()
     }
