@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,19 +13,19 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ColorizedApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocC-uB-4O1">
-                                <rect key="frame" x="20" y="64" width="374" height="163"/>
+                                <rect key="frame" x="16" y="20" width="288" height="163"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ocC-uB-4O1" secondAttribute="height" multiplier="374:163" id="3Bp-eR-acu"/>
-                                    <constraint firstAttribute="width" constant="374" id="nhb-ia-DDF"/>
+                                    <constraint firstAttribute="width" secondItem="ocC-uB-4O1" secondAttribute="height" multiplier="288:163" id="0Cd-c0-CpW"/>
+                                    <constraint firstAttribute="width" constant="288" id="TRw-hr-B7u"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XAE-D4-ScI">
-                                <rect key="frame" x="16" y="277" width="382" height="126"/>
+                                <rect key="frame" x="16" y="233" width="288" height="126"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="jMJ-zb-ogU">
                                         <rect key="frame" x="0.0" y="5.5" width="30" height="115.5"/>
@@ -74,24 +74,24 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="8qQ-Yi-GFc">
-                                        <rect key="frame" x="104.5" y="0.0" width="277.5" height="126"/>
+                                        <rect key="frame" x="104.5" y="0.0" width="183.5" height="126"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7fb-0p-qo1">
-                                                <rect key="frame" x="-2" y="0.0" width="281.5" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="187.5" height="31"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                                 <connections>
                                                     <action selector="redSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="o0U-7b-xEr"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Hb-Fu-NzT">
-                                                <rect key="frame" x="-2" y="48" width="281.5" height="31"/>
+                                                <rect key="frame" x="-2" y="48" width="187.5" height="31"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                                 <connections>
                                                     <action selector="greenSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="EsE-Uq-KMu"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="H7o-zu-KuG">
-                                                <rect key="frame" x="-2" y="96" width="281.5" height="31"/>
+                                                <rect key="frame" x="-2" y="96" width="187.5" height="31"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemBlueColor"/>
                                                 <connections>
                                                     <action selector="blueSliderAction" destination="BYZ-38-t0r" eventType="valueChanged" id="nRJ-HZ-WUq"/>
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="81.696428571428569"/>
+            <point key="canvasLocation" x="31.875" y="81.338028169014081"/>
         </scene>
     </scenes>
     <resources>
