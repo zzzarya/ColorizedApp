@@ -34,6 +34,7 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.endEditing(true)
         
         redValueTF.delegate = self
         greenValueTF.delegate = self
@@ -99,7 +100,7 @@ final class SettingsViewController: UIViewController {
         
     }
 }
-
+// MARK: - Extensions
 extension SettingsViewController {
     private func showAlert(with title: String, and massage: String) {
         let alert = UIAlertController(title: title, message: massage, preferredStyle: .alert)
@@ -113,14 +114,22 @@ extension SettingsViewController {
 
 extension SettingsViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
-        switch textField {
-        case redValueTF:
-            redValue.text = redValueTF.text
-        case greenValueTF:
-            greenValue.text = greenValueTF.text
-        default:
-            blueValue.text = blueValueTF.text
+        if let value = Float(textField.text ?? ""), value <= 1 {
+            switch textField {
+            case redValueTF:
+                redValue.text = redValueTF.text
+                redSlider.value = value
+            case greenValueTF:
+                greenValue.text = greenValueTF.text
+                greenSlider.value = value
+            default:
+                blueValue.text = blueValueTF.text
+                blueSlider.value = value
+            }
+        } else {
+            showAlert(with: "Wrong format", and: "Use range from 0 to 1")
         }
+        setupColorMainView()
     }
 }
 
