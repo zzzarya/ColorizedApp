@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsViewController: UIViewController {
     @IBOutlet var mainView: UIView!
     
     @IBOutlet var redValue: UILabel!
@@ -18,11 +18,14 @@ class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    var viewColor: UIColor!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        decomposeRGB()
+        
         mainView.layer.cornerRadius = 10
-        setupColorMainView()
     }
 
     @IBAction func redSliderAction() {
@@ -47,7 +50,24 @@ class ViewController: UIViewController {
         let redComponent = CGFloat(redSlider.value)
         let greenComponent = CGFloat(greenSlider.value)
         let blueComponent = CGFloat(blueSlider.value)
-        mainView.backgroundColor = UIColor(red: redComponent, green: greenComponent, blue: blueComponent, alpha: 1)
+        mainView.backgroundColor = UIColor(red: redComponent,
+                                           green: greenComponent,
+                                           blue: blueComponent,
+                                           alpha: 1)
+    }
+    
+    private func decomposeRGB() {
+        mainView.backgroundColor = viewColor
+        
+        guard let components = viewColor.cgColor.components else { return }
+        
+        redSlider.value = Float(components[0])
+        greenSlider.value = Float(components[1])
+        blueSlider.value = Float(components[2])
+        
+        redValue.text = String(format: "%.2f", redSlider.value)
+        greenValue.text = String(format: "%.2f", greenSlider.value)
+        blueValue.text = String(format: "%.2f", blueSlider.value)
     }
     
 }
