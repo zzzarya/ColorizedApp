@@ -7,7 +7,8 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
+    // MARK: - IBOutlets
     @IBOutlet var mainView: UIView!
     
     @IBOutlet var redValue: UILabel!
@@ -17,9 +18,11 @@ class SettingsViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
-    
+    // MARK: - Properties
     var viewColor: UIColor!
     
+    var delegate: SettingsViewControllerDelegate!
+    // MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +30,7 @@ class SettingsViewController: UIViewController {
         
         mainView.layer.cornerRadius = 10
     }
-
+    // MARK: - IBActions
     @IBAction func redSliderAction() {
         redValue.text = String(format: "%.2f", redSlider.value)
         
@@ -46,6 +49,11 @@ class SettingsViewController: UIViewController {
         setupColorMainView()
     }
     
+    @IBAction func donePressed() {
+        delegate.setNewViewColor(from: mainView.backgroundColor ?? .white)
+        dismiss(animated: true)
+    }
+    // MARK: - Private functions
     private func setupColorMainView() {
         let redComponent = CGFloat(redSlider.value)
         let greenComponent = CGFloat(greenSlider.value)
@@ -69,7 +77,6 @@ class SettingsViewController: UIViewController {
         greenValue.text = String(format: "%.2f", greenSlider.value)
         blueValue.text = String(format: "%.2f", blueSlider.value)
     }
-    
 }
 
 
