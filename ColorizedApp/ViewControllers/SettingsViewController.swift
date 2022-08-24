@@ -102,10 +102,11 @@ final class SettingsViewController: UIViewController {
 }
 // MARK: - Extensions
 extension SettingsViewController {
-    private func showAlert(with title: String, and massage: String) {
+    private func showAlert(with title: String, and massage: String, _ textField: UITextField) {
         let alert = UIAlertController(title: title, message: massage, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField.text = ""}
         
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -127,8 +128,9 @@ extension SettingsViewController: UITextFieldDelegate{
                 blueSlider.value = value
             }
         } else {
-            showAlert(with: "Wrong format", and: "Use range from 0 to 1")
+            showAlert(with: "Wrong format", and: "Use range from 0.00 to 1.00", textField)
         }
+        
         setupColorMainView()
     }
 }
