@@ -19,10 +19,15 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
-    @IBOutlet var redValueTF: UITextField!
-    @IBOutlet var greenValueTF: UITextField!
-    @IBOutlet var blueValueTF: UITextField!
-    
+    @IBOutlet var redValueTF: UITextField! {
+        didSet { redValueTF?.addDoneToolbar() }
+    }
+    @IBOutlet var greenValueTF: UITextField! {
+        didSet { greenValueTF?.addDoneToolbar() }
+    }
+    @IBOutlet var blueValueTF: UITextField! {
+        didSet { blueValueTF?.addDoneToolbar() }
+    }
     // MARK: - Properties
     var viewColor: UIColor!
     
@@ -133,6 +138,25 @@ extension SettingsViewController: UITextFieldDelegate{
         
         setupColorMainView()
     }
+}
+
+// Честно нагуглил
+extension UITextField {
+    func addDoneToolbar(onDone: (target: Any, action: Selector)? = nil) {
+        let onDone = onDone ?? (target: self, action: #selector(doneButtonTapped))
+
+        let toolbar: UIToolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Done", style: .done, target: onDone.target, action: onDone.action)
+        ]
+        toolbar.sizeToFit()
+
+        self.inputAccessoryView = toolbar
+    }
+
+    @objc func doneButtonTapped() { self.resignFirstResponder() }
 }
 
 
